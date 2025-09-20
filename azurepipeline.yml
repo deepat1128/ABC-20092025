@@ -1,10 +1,19 @@
 trigger:
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    backendServiceArm: 'adp-sp'
+    backendAzureRmResourceGroupName: 'agw-rg'
+    backendAzureRmStorageAccountName: 'deepaadpstorage'
+    backendAzureRmContainerName: 'container1'
+    backendAzureRmKey: 'storageagw.tfstate'
   branches:
     include:
       - main
 
 pool:
-  name: Defaulte
+  name: Default
 
 variables:
   TF_VERSION: '1.5.0'
