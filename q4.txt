@@ -1,0 +1,34 @@
+Q4. 4.	Run an Tomacat container on another machine with pip in a different network attach to AGW
+
+
+docker run -it -d imagename:tagname /bin/bash
+docker run -it -d tomcat:9 /bin/bash
+
+
+“docker ps”
+
+“docker network connect agw container ID”
+
+Create tomcat container in local:
+
+docker run -d -p 8082:8080 tomcat
+
+
+remote machine :  or my local where docker installed
+
+sudo ufw allow 8080/tcp
+
+
+Add public IP 52.233.206.187 into backend pool target.
+
+In Azure Portal:
+
+Go to  AGW > Backend Pools > Add IP 52.233.206.187
+
+configure LB rules
+Configure health probes
+
+
+Verify on browser
+Access Tomcat via: http://4.217.191.142:8080
+
