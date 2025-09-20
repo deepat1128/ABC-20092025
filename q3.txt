@@ -1,0 +1,26 @@
+Deploy an tomcat app into a VM created in the network
+
+
+
+ssh deepa@4.217.191.142
+
+ Install Java 
+sudo apt update
+sudo apt install default-jdk -y
+
+Download and Install Tomcat
+cd /opt
+sudo wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.82/bin/apache-tomcat-9.0.82.tar.gz
+sudo tar -xvzf apache-tomcat-9.0.82.tar.gz
+sudo mv apache-tomcat-9.0.82 tomcat
+
+
+Deploy ABC Application
+Copy your Amazon.war file into the webapps of tomcat
+
+
+sudo cp Amazon.war /opt/tomcat/webapps/
+
+to access in browser
+http://4.217.191.142:8080/Amazon
+
